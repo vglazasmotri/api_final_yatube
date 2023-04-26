@@ -15,7 +15,7 @@ class PostSerializer(serializers.ModelSerializer):
     """Сериализатор для модели Post."""
     author = serializers.SlugRelatedField(
         slug_field='username',
-        read_only=True
+        read_only=True,
     )
 
     class Meta:
@@ -27,7 +27,7 @@ class CommentSerializer(serializers.ModelSerializer):
     """Сериализатор для модели Comment."""
     author = serializers.SlugRelatedField(
         slug_field='username',
-        read_only=True
+        read_only=True,
     )
 
     class Meta:
@@ -45,7 +45,7 @@ class FollowSerializer(serializers.ModelSerializer):
     )
     following = serializers.SlugRelatedField(
         slug_field='username',
-        queryset=User.objects.all()
+        queryset=User.objects.all(),
     )
 
     class Meta:
@@ -55,9 +55,10 @@ class FollowSerializer(serializers.ModelSerializer):
             UniqueTogetherValidator(
                 queryset=Follow.objects.all(),
                 fields=('user', 'following'),
-                message='Вы уже подписывались на этого автора.'
+                message='Вы уже подписывались на этого автора.',
             ),
         ]
+
     def validate(self, data):
         """Если совпадают имя пользователя и автора выдает ошибку."""
         if self.context['request'].user == data['following']:

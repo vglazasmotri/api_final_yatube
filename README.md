@@ -11,6 +11,18 @@
 
 ## Как запустить проект
 
+Склонировать проект:
+
+```
+git clone git@github.com:vglazasmotri/api_final_yatube.git
+```
+
+Перейти в его папку:
+
+```
+cd api_final_yatube
+```
+
 Cоздать и активировать виртуальное окружение:
 
 ```
@@ -531,3 +543,5 @@ http://127.0.0.1:8000/api/v1/jwt/verify/
   "token": "string"
 }
 ```
+
+Автор: [Сергей Сыч](https://github.com/vglazasmotri)
